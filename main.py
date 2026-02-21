@@ -144,10 +144,10 @@ class TimerModal(ModalScreen):
     def _update_display(self) -> None:
         display = self.query_one("#timer-display", Static)
         if self.phase == "countdown":
-            display.update(f"[yellow]Starting in {self.countdown}...[/yellow]")
+            display.update(f"Starting in {self.countdown}...")
         else:
             mins, secs = divmod(self.elapsed_seconds, 60)
-            display.update(f"[green]{mins:02d}:{secs:02d}[/green]")
+            display.update(f"{mins:02d}:{secs:02d}")
 
     def on_button_pressed(self, event: Button.Pressed) -> None:
         if event.button.id == "stop_btn":
@@ -261,18 +261,6 @@ class RecallApp(App):
                 yield Static("Stats", classes="section-title")
                 yield Static(id="stats_box", classes="stat-box")
                 yield Static(id="view_indicator", classes="stat-box")
-
-                yield Static(
-                    "\n[b]Controls:[/b]\n"
-                    "[green]a[/green] : Add Problem\n"
-                    "[green]x[/green] : Reset Progress\n"
-                    "[green]o[/green] : Open Problem URL\n"
-                    "[green]ctrl+f[/green] : Toggle Search/Table\n"
-                    "[green]s[/green]      : Toggle Stats\n"
-                    "[green]l[/green] : Toggle Due/All\n"
-                    "[green]q[/green] : Quit",
-                    classes="help-text",
-                )
         yield Footer()
 
     def on_mount(self) -> None:

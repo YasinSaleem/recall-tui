@@ -1,6 +1,6 @@
 Screen {
-    background: #1e1e1e;
-    color: #cccccc;
+    background: $background;
+    color: $foreground;
 }
 
 /* --- Layout --- */
@@ -12,7 +12,7 @@ Screen {
 #left-pane {
     width: 100%;
     height: 100%;
-    border-right: solid #2d2d2d;
+    border-right: solid $panel;
     padding: 1;
 }
 
@@ -34,28 +34,28 @@ Screen {
 
 /* --- Widgets --- */
 DataTable {
-    background: #1e1e1e;
-    border: solid #2d2d2d;
+    background: $background;
+    border: solid $panel;
     height: 1fr;
 }
 
 .stat-box {
-    background: #2d2d2d;
+    background: $surface;
     padding: 1;
     margin-bottom: 1;
-    border-left: solid #4ec9b0;
+    border-left: solid $primary;
 }
 
 .section-title {
-    color: #4ec9b0;
+    color: $primary;
     text-style: bold;
     margin-bottom: 1;
 }
 
 .search-box {
     margin-bottom: 1;
-    border: solid #2d2d2d;
-    background: #1e1e1e;
+    border: solid $panel;
+    background: $background;
 }
 
 /* --- Modal --- */
@@ -67,29 +67,26 @@ AddModal {
     padding: 2;
     width: 60;
     height: auto;
-    background: #252526;
-    border: solid #4ec9b0;
+    background: $surface;
+    border: solid $primary;
 }
 
 Input,
 Select {
     margin-bottom: 1;
-    border: solid #4ec9b0;
-    background: #2d2d2d;
+    border: solid $primary;
+    background: $surface;
 }
 
 Label {
     margin-bottom: 0;
     margin-top: 1;
-    color: #4ec9b0;
+    color: $primary;
 }
 
 Button {
     width: 100%;
     margin-top: 1;
-    background: #4ec9b0;
-    color: #1e1e1e;
-    text-style: bold;
 }
 
 .modal-buttons {
@@ -103,10 +100,6 @@ Button {
     margin: 1 1;
 }
 
-#cancel_btn {
-    background: #c586c0;
-}
-
 /* --- Timer Modal --- */
 TimerModal {
     align: center middle;
@@ -116,14 +109,14 @@ TimerModal {
     padding: 2;
     width: 40;
     height: auto;
-    background: #252526;
-    border: solid #4ec9b0;
+    background: $surface;
+    border: solid $primary;
     align: center middle;
 }
 
 #timer-title {
     text-align: center;
-    color: #4ec9b0;
+    color: $primary;
     margin-bottom: 1;
 }
 
@@ -131,14 +124,7 @@ TimerModal {
     text-align: center;
     text-style: bold;
     margin-bottom: 1;
-}
-
-#stop_btn {
-    background: #4ec9b0;
-}
-
-#stop_btn:disabled {
-    background: #555555;
+    color: $accent;
 }
 
 /* --- Help Modal --- */
