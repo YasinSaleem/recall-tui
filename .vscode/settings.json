@@ -1,0 +1,19 @@
+{
+    // Turn off built-in CSS validation (we'll rely on Stylelint instead)
+    "css.validate": false,
+
+    // If you ever re-enable css.validate, keep these low-noise
+    "css.lint.unknownProperties": "ignore",
+    "css.lint.invalidPropertyValue": "ignore",
+
+    // Same idea for other preprocessor languages, just in case
+    "scss.lint.unknownProperties": "ignore",
+    "less.lint.unknownProperties": "ignore",
+
+    // Only run Stylelint on non-Textual files (optional safeguard)
+    "stylelint.validate": [
+        "css",
+        "scss",
+        "less"
+    ]
+}
