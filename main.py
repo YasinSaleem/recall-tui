@@ -178,36 +178,37 @@ class HelpModal(ModalScreen):
             with Container(id="help-dialog"):
                 yield Static("Keyboard Shortcuts", id="help-title")
                 with Horizontal(classes="help-row"):
-                    yield Static("[cyan]h[/cyan]", classes="help-key")
+                    yield Static("[#c586c0]h[/#c586c0]", classes="help-key")
                     yield Static("Toggle this help", classes="help-desc")
                 with Horizontal(classes="help-row"):
-                    yield Static("[cyan]a[/cyan]", classes="help-key")
+                    yield Static("[#c586c0]a[/#c586c0]", classes="help-key")
                     yield Static("Add new problem", classes="help-desc")
                 with Horizontal(classes="help-row"):
-                    yield Static("[cyan]r[/cyan]", classes="help-key")
+                    yield Static("[#c586c0]r[/#c586c0]", classes="help-key")
                     yield Static("Mark reviewed", classes="help-desc")
                 with Horizontal(classes="help-row"):
-                    yield Static("[cyan]x[/cyan]", classes="help-key")
+                    yield Static("[#c586c0]x[/#c586c0]", classes="help-key")
                     yield Static("Reset progress", classes="help-desc")
                 with Horizontal(classes="help-row"):
-                    yield Static("[cyan]l[/cyan]", classes="help-key")
+                    yield Static("[#c586c0]l[/#c586c0]", classes="help-key")
                     yield Static("Toggle Due / All view", classes="help-desc")
                 with Horizontal(classes="help-row"):
                     yield Static(
-                        "[cyan]o[/cyan] / [cyan]enter[/cyan]", classes="help-key"
+                        "[#c586c0]o[/#c586c0] / [#c586c0]enter[/#c586c0]",
+                        classes="help-key",
                     )
                     yield Static("Open URL & start timer", classes="help-desc")
                 with Horizontal(classes="help-row"):
-                    yield Static("[cyan]ctrl+f[/cyan]", classes="help-key")
+                    yield Static("[#c586c0]ctrl+f[/#c586c0]", classes="help-key")
                     yield Static("Focus search box", classes="help-desc")
                 with Horizontal(classes="help-row"):
-                    yield Static("[cyan]s[/cyan]", classes="help-key")
+                    yield Static("[#c586c0]s[/#c586c0]", classes="help-key")
                     yield Static("Toggle stats panel", classes="help-desc")
                 with Horizontal(classes="help-row"):
-                    yield Static("[cyan]q[/cyan]", classes="help-key")
+                    yield Static("[#c586c0]q[/#c586c0]", classes="help-key")
                     yield Static("Quit", classes="help-desc")
                 yield Static(
-                    "[dim]Press [cyan]h[/cyan] or [cyan]esc[/cyan] to close[/dim]",
+                    "[dim]Press [#c586c0]h[/#c586c0] or [#c586c0]esc[/#c586c0] to close[/dim]",
                     id="help-footer",
                 )
 
