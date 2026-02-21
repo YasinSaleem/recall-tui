@@ -150,24 +150,24 @@ HelpModal {
     width: 100%;
     height: 100%;
     align: center middle;
-    background: rgba(0, 0, 0, 0.70);
+    background: $background 70%;
 }
 
 #help-dialog {
     padding: 2 4;
     width: 50;
     height: auto;
-    background: #252526;
-    border: round #c586c0;
+    background: $surface;
+    border: round $primary;
     layout: vertical;
 }
 
 #help-title {
     text-align: center;
-    color: #c586c0;
+    color: $primary;
     text-style: bold;
     padding-bottom: 1;
-    border-bottom: solid #3a3a3a;
+    border-bottom: solid $panel;
     margin-bottom: 1;
 }
 
@@ -179,19 +179,19 @@ HelpModal {
 
 .help-key {
     width: 16;
-    color: #c586c0;
+    color: $accent;
     text-style: bold;
 }
 
 .help-desc {
     width: 1fr;
-    color: #cccccc;
+    color: $foreground;
 }
 
 #help-footer {
     text-align: center;
     margin-top: 1;
     padding-top: 1;
-    border-top: solid #3a3a3a;
-    color: #888888;
+    border-top: solid $panel;
+    color: $foreground 60%;
 }
