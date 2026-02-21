@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "title": "Two Sum",
+    "difficulty": "Easy",
+    "topic": "Arrays & Hashing",
+    "date_solved": "2026-02-16",
+    "last_reviewed": "2026-02-19",
+    "review_stage": 2,
+    "next_review": "2026-02-22",
+    "status": "Active",
+    "url": "https://neetcode.io/problems/two-integer-sum/question?list=neetcode150"
+  },
+  {
+    "id": 2,
+    "title": "Group Anagrams",
+    "difficulty": "Medium",
+    "topic": "Arrays & Hashing",
+    "date_solved": "2026-02-16",
+    "last_reviewed": "2026-02-19",
+    "review_stage": 2,
+    "next_review": "2026-02-22",
+    "status": "Active",
+    "url": "https://neetcode.io/problems/anagram-groups/question?list=neetcode150"
+  },
+  {
+    "id": 3,
+    "title": "Valid Palindrome",
+    "difficulty": "Easy",
+    "topic": "Arrays & Hashing",
+    "date_solved": "2026-02-18",
+    "last_reviewed": "2026-02-21",
+    "review_stage": 2,
+    "next_review": "2026-02-24",
+    "status": "Active",
+    "url": "https://neetcode.io/problems/is-palindrome/question?list=neetcode150"
+  },
+  {
+    "id": 4,
+    "title": "Top K Frequent Elements",
+    "difficulty": "Medium",
+    "topic": "Arrays & Hashing",
+    "date_solved": "2026-02-19",
+    "last_reviewed": "2026-02-21",
+    "review_stage": 1,
+    "next_review": "2026-02-22",
+    "status": "Active",
+    "url": "https://neetcode.io/problems/top-k-elements-in-list/question"
+  }
+]

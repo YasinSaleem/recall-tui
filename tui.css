@@ -1,0 +1,109 @@
+Screen {
+    background: #1e1e1e;
+    color: #cccccc;
+}
+
+/* --- Layout --- */
+#main-container {
+    layout: horizontal;
+    height: 100%;
+}
+
+#left-pane {
+    width: 100%;
+    height: 100%;
+    border-right: solid #2d2d2d;
+    padding: 1;
+}
+
+#right-pane {
+    display: none;
+}
+
+/* When stats are visible */
+.show-stats #left-pane {
+    width: 65%;
+}
+
+.show-stats #right-pane {
+    display: block;
+    width: 35%;
+    height: 100%;
+    padding: 1;
+}
+
+/* --- Widgets --- */
+DataTable {
+    background: #1e1e1e;
+    border: solid #2d2d2d;
+    height: 1fr;
+}
+
+.stat-box {
+    background: #2d2d2d;
+    padding: 1;
+    margin-bottom: 1;
+    border-left: solid #4ec9b0;
+}
+
+.section-title {
+    color: #4ec9b0;
+    text-style: bold;
+    margin-bottom: 1;
+}
+
+.search-box {
+    margin-bottom: 1;
+    border: solid #2d2d2d;
+    background: #1e1e1e;
+}
+
+/* --- Modal --- */
+AddModal {
+    align: center middle;
+}
+
+#modal-dialog {
+    padding: 2;
+    width: 60;
+    height: auto;
+    background: #252526;
+    border: solid #4ec9b0;
+}
+
+Input,
+Select {
+    margin-bottom: 1;
+    border: solid #4ec9b0;
+    background: #2d2d2d;
+}
+
+Label {
+    margin-bottom: 0;
+    margin-top: 1;
+    color: #4ec9b0;
+}
+
+Button {
+    width: 100%;
+    margin-top: 1;
+    background: #4ec9b0;
+    color: #1e1e1e;
+    text-style: bold;
+}
+
+.modal-buttons {
+    height: auto;
+    width: 100%;
+    align: center bottom;
+}
+
+.modal-buttons Button {
+    width: 48%;
+    margin: 1 1;
+}
+
+#cancel_btn {
+    background: #c586c0;
+    /* reddish / purple */
+}
