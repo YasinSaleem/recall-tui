@@ -140,3 +140,34 @@ def update_best_time(problem_title, seconds):
             return False, current_best
 
     return None, None
+
+
+# --- Config / Settings ---
+CONFIG_FILE = "recall_config.json"
+
+
+def load_config():
+    """Load app configuration (theme, etc.)."""
+    if not os.path.exists(CONFIG_FILE):
+        return {}
+    with open(CONFIG_FILE, "r") as f:
+        return json.load(f)
+
+
+def save_config(config):
+    """Save app configuration."""
+    with open(CONFIG_FILE, "w") as f:
+        json.dump(config, f, indent=2)
+
+
+def get_theme():
+    """Get the saved theme name, or None if not set."""
+    config = load_config()
+    return config.get("theme")
+
+
+def set_theme(theme_name):
+    """Save the theme name to config."""
+    config = load_config()
+    config["theme"] = theme_name
+    save_config(config)

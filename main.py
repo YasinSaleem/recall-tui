@@ -235,6 +235,17 @@ class RecallApp(App):
     search_filter = ""
     show_stats = False
 
+    def __init__(self):
+        super().__init__()
+        # Load persisted theme on startup
+        saved_theme = database.get_theme()
+        if saved_theme and saved_theme in self.available_themes:
+            self.theme = saved_theme
+
+    def watch_theme(self, old_theme: str, new_theme: str) -> None:
+        """Called when theme changes; persist to config."""
+        database.set_theme(new_theme)
+
     def compose(self) -> ComposeResult:
         yield Header(show_clock=True)
         with Horizontal(id="main-container"):

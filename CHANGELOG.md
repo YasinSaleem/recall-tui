@@ -16,6 +16,10 @@
   - Press `h` to open a help overlay with all keyboard controls
   - Modal is dismissible with `escape` or `h`
 
+- **Persistent Theme** - Theme selection is now saved across sessions
+  - Change theme via command palette (`ctrl+p` > "Change theme")
+  - Selected theme is stored in `recall_config.json` and restored on next launch
+
 ---
 
 ## v0.1.0 (2026-02-21)
