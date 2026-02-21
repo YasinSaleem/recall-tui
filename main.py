@@ -176,19 +176,39 @@ class HelpModal(ModalScreen):
     def compose(self) -> ComposeResult:
         with Container(id="help-overlay"):
             with Container(id="help-dialog"):
-                yield Label("Keyboard Shortcuts", id="help-title")
+                yield Static("Keyboard Shortcuts", id="help-title")
+                with Horizontal(classes="help-row"):
+                    yield Static("[cyan]h[/cyan]", classes="help-key")
+                    yield Static("Toggle this help", classes="help-desc")
+                with Horizontal(classes="help-row"):
+                    yield Static("[cyan]a[/cyan]", classes="help-key")
+                    yield Static("Add new problem", classes="help-desc")
+                with Horizontal(classes="help-row"):
+                    yield Static("[cyan]r[/cyan]", classes="help-key")
+                    yield Static("Mark reviewed", classes="help-desc")
+                with Horizontal(classes="help-row"):
+                    yield Static("[cyan]x[/cyan]", classes="help-key")
+                    yield Static("Reset progress", classes="help-desc")
+                with Horizontal(classes="help-row"):
+                    yield Static("[cyan]l[/cyan]", classes="help-key")
+                    yield Static("Toggle Due / All view", classes="help-desc")
+                with Horizontal(classes="help-row"):
+                    yield Static(
+                        "[cyan]o[/cyan] / [cyan]enter[/cyan]", classes="help-key"
+                    )
+                    yield Static("Open URL & start timer", classes="help-desc")
+                with Horizontal(classes="help-row"):
+                    yield Static("[cyan]ctrl+f[/cyan]", classes="help-key")
+                    yield Static("Focus search box", classes="help-desc")
+                with Horizontal(classes="help-row"):
+                    yield Static("[cyan]s[/cyan]", classes="help-key")
+                    yield Static("Toggle stats panel", classes="help-desc")
+                with Horizontal(classes="help-row"):
+                    yield Static("[cyan]q[/cyan]", classes="help-key")
+                    yield Static("Quit", classes="help-desc")
                 yield Static(
-                    "[b]Keyboard Shortcuts[/b]\n"
-                    "[green]h[/green]    : Toggle Help\n"
-                    "[green]a[/green]    : Add Problem\n"
-                    "[green]r[/green]    : Mark Reviewed (Done)\n"
-                    "[green]x[/green]    : Reset Problem Progress\n"
-                    "[green]l[/green]    : Toggle Due/All View\n"
-                    "[green]o[/green]/[green]enter[/green] : Open Problem URL (start timer)\n"
-                    "[green]ctrl+f[/green]: Focus Search\n"
-                    "[green]s[/green]    : Toggle Stats Panel\n"
-                    "[green]q[/green]    : Quit\n",
-                    id="help-content",
+                    "[dim]Press [cyan]h[/cyan] or [cyan]esc[/cyan] to close[/dim]",
+                    id="help-footer",
                 )
 
     def action_cancel(self) -> None:
