@@ -264,7 +264,15 @@ class RecallApp(App):
         yield Footer()
 
     def on_mount(self) -> None:
+        # Populate UI data then set initial focus to the problems table
+        # (default used to focus the search box; inverse by default now)
         self.refresh_data()
+        try:
+            table = self.query_one("#problem_table", DataTable)
+            table.focus()
+        except Exception:
+            # If focus can't be set (no table yet), ignore silently
+            pass
 
     def refresh_data(self) -> None:
         table = self.query_one("#problem_table", DataTable)
