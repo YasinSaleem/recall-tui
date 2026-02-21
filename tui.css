@@ -105,5 +105,38 @@ Button {
 
 #cancel_btn {
     background: #c586c0;
-    /* reddish / purple */
+}
+
+/* --- Timer Modal --- */
+TimerModal {
+    align: center middle;
+}
+
+#timer-dialog {
+    padding: 2;
+    width: 40;
+    height: auto;
+    background: #252526;
+    border: solid #4ec9b0;
+    align: center middle;
+}
+
+#timer-title {
+    text-align: center;
+    color: #4ec9b0;
+    margin-bottom: 1;
+}
+
+#timer-display {
+    text-align: center;
+    text-style: bold;
+    margin-bottom: 1;
+}
+
+#stop_btn {
+    background: #4ec9b0;
+}
+
+#stop_btn:disabled {
+    background: #555555;
 }
