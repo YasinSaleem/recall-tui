@@ -2,11 +2,8 @@
 
 ## High Priority
 
-### [ ] Help Popup (`h`)
-Translucent modal showing all keybindings.
-- Press `h` to toggle help popup
-- Remove keybind definitions from the sidebar (cleaner UI)
-- Popup should be semi-transparent overlay
+### [x] Help Popup (`h`)
+Translucent modal showing all keybindings. Implemented: press `h` to open the help overlay.
 
 ### [ ] Edit Problem
 Ability to edit a problem's title, difficulty, topic, and URL after logging.

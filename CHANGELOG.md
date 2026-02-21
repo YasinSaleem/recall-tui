@@ -10,7 +10,11 @@
   - **Stop** button: Records time if it's a new best
   - **Cancel** button: Discards the time
   - Best times displayed in new "Best" column in problem table
-  - Notifications show when a new best time is set
+- Notifications show when a new best time is set
+
+- **Help Popup** - Translucent overlay showing keybindings
+  - Press `h` to open a help overlay with all keyboard controls
+  - Modal is dismissible with `escape` or `h`
 
 ---
 

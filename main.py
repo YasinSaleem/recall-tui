@@ -168,10 +168,38 @@ class TimerModal(ModalScreen):
         self.dismiss(("cancelled", None, None))
 
 
+class HelpModal(ModalScreen):
+    """Translucent modal that displays all keybindings."""
+
+    BINDINGS = [("escape", "cancel", "Cancel"), ("h", "cancel", "Close")]
+
+    def compose(self) -> ComposeResult:
+        with Container(id="help-overlay"):
+            with Container(id="help-dialog"):
+                yield Label("Keyboard Shortcuts", id="help-title")
+                yield Static(
+                    "[b]Keyboard Shortcuts[/b]\n"
+                    "[green]h[/green]    : Toggle Help\n"
+                    "[green]a[/green]    : Add Problem\n"
+                    "[green]r[/green]    : Mark Reviewed (Done)\n"
+                    "[green]x[/green]    : Reset Problem Progress\n"
+                    "[green]l[/green]    : Toggle Due/All View\n"
+                    "[green]o[/green]/[green]enter[/green] : Open Problem URL (start timer)\n"
+                    "[green]ctrl+f[/green]: Focus Search\n"
+                    "[green]s[/green]    : Toggle Stats Panel\n"
+                    "[green]q[/green]    : Quit\n",
+                    id="help-content",
+                )
+
+    def action_cancel(self) -> None:
+        self.dismiss(True)
+
+
 class RecallApp(App):
     CSS_PATH = "tui.css"
     BINDINGS = [
         ("q", "quit", "Quit"),
+        ("h", "toggle_help", "Help"),
         ("a", "add_problem", "Log Problem"),
         ("r", "review_problem", "Review (Done)"),
         ("x", "reset_problem", "Reset Progress"),  # NEW BINDING
@@ -386,6 +414,10 @@ class RecallApp(App):
             self.push_screen(TimerModal(title), handle_timer_result)
         else:
             self.notify("No URL found for this problem.", severity="warning")
+
+    def action_toggle_help(self) -> None:
+        """Show the help popup overlay listing all keybindings."""
+        self.push_screen(HelpModal())
 
     def action_focus_search(self) -> None:
         """Toggles focus between search box and table."""
