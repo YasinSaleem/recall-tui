@@ -1,12 +1,11 @@
 import json
 import os
+import random
 from datetime import datetime, timedelta
 
 DB_FILE = "recall_db.json"
 DATE_FMT = "%Y-%m-%d"
 
-# The Spaced Repetition Schedule (Days)
-# 0 (Today - Learning), 1 (Tomorrow), 3, 7, 21, 30
 INTERVALS = [0, 1, 3, 7, 21, 30]
 
 
@@ -25,7 +24,6 @@ def save_db(data):
 def add_problem(title, difficulty, topic, url=""):
     data = load_db()
 
-    # Check for duplicates to avoid mess
     if any(p["title"] == title for p in data):
         return False
 
@@ -37,7 +35,6 @@ def add_problem(title, difficulty, topic, url=""):
         "date_solved": datetime.now().strftime(DATE_FMT),
         "last_reviewed": datetime.now().strftime(DATE_FMT),
         "review_stage": 0,
-        # Default: First review is tomorrow (Index 1)
         "next_review": (datetime.now() + timedelta(days=INTERVALS[1])).strftime(
             DATE_FMT
         ),
@@ -61,6 +58,13 @@ def get_all_problems():
     return sorted(data, key=lambda x: x["date_solved"], reverse=True)
 
 
+def get_random_problems(n: int):
+    data = load_db()
+    if len(data) <= n:
+        return data
+    return random.sample(data, n)
+
+
 def get_stats():
     data = load_db()
     total = len(data)
@@ -70,22 +74,13 @@ def get_stats():
 
 
 def mark_reviewed(problem_title):
-    """
-    Returns: (bool: success, str: message)
-    """
     data = load_db()
     today = datetime.now().strftime(DATE_FMT)
 
     for p in data:
         if p["title"] == problem_title:
-            # CONSTRAINT 1: Is it due?
             if p["next_review"] > today:
                 return False, f"Not due yet! Next review: {p['next_review']}"
-
-            # CONSTRAINT 2: Already reviewed today?
-            # If next_review is in the future, it handles this.
-            # But if next_review WAS today and we just reviewed it,
-            # the logic below pushes next_review to future, so we are safe.
 
             current_stage = p["review_stage"]
             if current_stage < len(INTERVALS) - 1:
@@ -107,7 +102,6 @@ def mark_reviewed(problem_title):
 
 
 def reset_problem(problem_title):
-    """Resets a problem to Day 1 (Stage 0)."""
     data = load_db()
     today = datetime.now().strftime(DATE_FMT)
 
@@ -116,7 +110,6 @@ def reset_problem(problem_title):
             p["review_stage"] = 0
             p["status"] = "Active"
             p["last_reviewed"] = today
-            # Resetting implies we re-learned it today, so review is tomorrow
             p["next_review"] = (datetime.now() + timedelta(days=INTERVALS[1])).strftime(
                 DATE_FMT
             )
@@ -127,7 +120,6 @@ def reset_problem(problem_title):
 
 
 def update_best_time(problem_title, seconds):
-    """Updates best_time_seconds if the new time is better (lower) or no previous time exists."""
     data = load_db()
 
     for p in data:
@@ -142,12 +134,10 @@ def update_best_time(problem_title, seconds):
     return None, None
 
 
-# --- Config / Settings ---
 CONFIG_FILE = "recall_config.json"
 
 
 def load_config():
-    """Load app configuration (theme, etc.)."""
     if not os.path.exists(CONFIG_FILE):
         return {}
     with open(CONFIG_FILE, "r") as f:
@@ -155,19 +145,16 @@ def load_config():
 
 
 def save_config(config):
-    """Save app configuration."""
     with open(CONFIG_FILE, "w") as f:
         json.dump(config, f, indent=2)
 
 
 def get_theme():
-    """Get the saved theme name, or None if not set."""
     config = load_config()
     return config.get("theme")
 
 
 def set_theme(theme_name):
-    """Save the theme name to config."""
     config = load_config()
     config["theme"] = theme_name
     save_config(config)

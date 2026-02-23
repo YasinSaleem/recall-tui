@@ -181,3 +181,29 @@ HelpModal {
     border-top: solid $panel;
     color: $foreground 60%;
 }
+
+/* --- Test Mode Screen --- */
+#test-mode-container {
+    height: 100%;
+    padding: 1;
+}
+
+#test-mode-title {
+    text-align: center;
+    text-style: bold;
+    color: $accent;
+    margin-bottom: 1;
+}
+
+#test-mode-header {
+    text-align: center;
+    background: $surface;
+    padding: 1;
+    margin-bottom: 1;
+    border: solid $panel;
+    color: $foreground;
+}
+
+#test_mode_table {
+    height: 100%;
+}

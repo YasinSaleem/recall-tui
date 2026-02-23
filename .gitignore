@@ -11,3 +11,4 @@ wheels/
 .venv
 
 recall_config.json
+recall_db.json
